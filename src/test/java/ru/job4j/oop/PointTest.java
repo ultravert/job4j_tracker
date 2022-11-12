@@ -50,6 +50,7 @@ class PointTest {
         double expected = 1.7;
         assertThat(first.distance3d(second)).isCloseTo(expected, Percentage.withPercentage(99));
     }
+
     @Test
     public void when000to100then1() {
         Point first = new Point(0, 0, 0);
