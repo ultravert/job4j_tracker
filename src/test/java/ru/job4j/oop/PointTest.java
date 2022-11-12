@@ -1,7 +1,8 @@
 package ru.job4j.oop;
 
+import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 class PointTest {
 
@@ -39,5 +40,22 @@ class PointTest {
         point.distance(point1);
         double expected = 2;
         assertThat(point.distance(point1)).isEqualTo(expected);
+    }
+
+    @Test
+    public void when000to111then1dot7() {
+        Point first = new Point(0, 0, 0);
+        Point second = new Point(1, 1, 1);
+        first.distance3d(second);
+        double expected = 1.7;
+        assertThat(first.distance3d(second)).isCloseTo(expected, Percentage.withPercentage(99));
+    }
+    @Test
+    public void when000to100then1() {
+        Point first = new Point(0, 0, 0);
+        Point second = new Point(0, 2, 0);
+        first.distance3d(second);
+        double expected = 2;
+        assertThat(first.distance3d(second)).isCloseTo(expected, Percentage.withPercentage(99));
     }
 }
