@@ -52,7 +52,7 @@ class PointTest {
     }
 
     @Test
-    public void when000to100then1() {
+    public void when000to020then2() {
         Point first = new Point(0, 0, 0);
         Point second = new Point(0, 2, 0);
         first.distance3d(second);
