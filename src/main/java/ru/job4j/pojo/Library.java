@@ -14,21 +14,16 @@ public class Library {
         for (Book bk : books) {
             System.out.println(bk.getName() + " - " + bk.getCount());
         }
-        swap0and3(books);
+        Book temp = books[0];
+        books[0] = books[3];
+        books[3] = temp;
         for (Book bk : books) {
             System.out.println(bk.getName() + " - " + bk.getCount());
         }
         for (Book bk : books) {
-            if (bk.getName().equals("Clean code")) {
+            if ("Clean code".equals(bk.getName())) {
                 System.out.println(bk.getName() + " - " + bk.getCount());
             }
         }
-    }
-
-    public static void swap0and3(Book[] name) {
-        Book temp = new Book("name", 999);
-        temp = name[0];
-        name[0] = name[3];
-        name[3] = temp;
     }
 }
