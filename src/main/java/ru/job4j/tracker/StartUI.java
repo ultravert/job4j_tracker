@@ -68,7 +68,7 @@ public class StartUI {
         }
     }
 
-    public static void init(Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
@@ -91,7 +91,7 @@ public class StartUI {
         }
     }
 
-    private static void showMenu() {
+    private void showMenu() {
         String[] menu = {
                 "Add new Item", "Show all items", "Edit item",
                 "Delete item", "Find item by id", "Find items by name",
@@ -106,6 +106,6 @@ public class StartUI {
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        init(input, tracker);
+        new StartUI().init(input, tracker);
     }
 }
