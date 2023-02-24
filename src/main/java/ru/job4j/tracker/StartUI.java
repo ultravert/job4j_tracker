@@ -68,30 +68,30 @@ public class StartUI {
         }
     }
 
-    public void init(Input input, Tracker tracker) {
+    public static void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
             int select = input.askInt("Select: ");
             if (select == 0) {
-                StartUI.createItem(input, tracker);
+                createItem(input, tracker);
             } else if (select == 1) {
-                StartUI.showAllItem(tracker);
+                showAllItem(tracker);
             } else if (select == 2) {
-                StartUI.editItem(input, tracker);
+                editItem(input, tracker);
             } else if (select == 3) {
-                StartUI.deleteItem(input, tracker);
+                deleteItem(input, tracker);
             } else if (select == 4) {
-                StartUI.findItemById(input, tracker);
+                findItemById(input, tracker);
             } else if (select == 5) {
-                StartUI.findItemByName(input, tracker);
+                findItemByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
         }
     }
 
-    private void showMenu() {
+    private static void showMenu() {
         String[] menu = {
                 "Add new Item", "Show all items", "Edit item",
                 "Delete item", "Find item by id", "Find items by name",
@@ -106,6 +106,6 @@ public class StartUI {
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
+        init(input, tracker);
     }
 }
