@@ -18,9 +18,9 @@ public class ReconstructPhrase {
         for (int i = 0; i < evenElements.size(); i++) {
             if (i % 2 == 0) {
                 rsl = rsl.append(evenElements.pollFirst());
-                evenElements.offer(evenElements.peekFirst());
+                evenElements.offer('#');
             } else {
-                evenElements.offer(evenElements.peekFirst());
+                evenElements.offer('#');
                 evenElements.pollFirst();
             }
         }
@@ -31,7 +31,7 @@ public class ReconstructPhrase {
         StringBuilder rsl = new StringBuilder();
         for (int i = 0; i < descendingElements.size(); i++) {
             rsl = rsl.append(descendingElements.pollLast());
-            descendingElements.addFirst(descendingElements.peekLast());
+            descendingElements.addFirst('#');
         }
         return rsl.toString();
     }
