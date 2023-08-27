@@ -16,18 +16,16 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
-        double sum = 0;
-        int count = 0;
         List<Label> rsl = new ArrayList<>();
         for (Pupil pupil : pupils) {
+            double sum = 0;
+            int count = 0;
             for (Subject subj : pupil.subjects()) {
                 sum += subj.score();
                 count++;
             }
             sum /= count;
             rsl.add(new Label(pupil.name(), sum));
-            sum = 0;
-            count = 0;
         }
         return rsl;
     }
@@ -37,12 +35,7 @@ public class AnalyzeByMap {
         int count = 0;
         for (Pupil pupil : pupils) {
             for (Subject subj : pupil.subjects()) {
-                if (temp.containsKey(subj.name())) {
-                    int score = temp.get(subj.name());
-                    temp.put(subj.name(), score + subj.score());
-                } else {
-                    temp.put(subj.name(), subj.score());
-                }
+                temp.put(subj.name(), temp.getOrDefault(subj.name(), 0) + subj.score());
             }
             count++;
         }
