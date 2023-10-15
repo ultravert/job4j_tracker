@@ -53,4 +53,24 @@ public class StringCompareTest {
         );
         assertThat(rst).isLessThan(0);
     }
+
+    @Test
+    public void whenRightIsEmpyShouldBePositive() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "Petrov",
+                ""
+        );
+        assertThat(rst).isGreaterThan(0);
+    }
+
+    @Test
+    public void whenLeftIsEmpyShouldBeNegative() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "",
+                "Petrov"
+        );
+        assertThat(rst).isLessThan(0);
+    }
 }
